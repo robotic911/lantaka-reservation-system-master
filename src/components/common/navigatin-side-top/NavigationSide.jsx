@@ -27,7 +27,6 @@ const navLinks = [
     icon: <FaPeopleGroup style={{ height: '1rem', width: '1rem' , margin: '5px 0'}} />, // Icon for Guest
     display: "Guest", // Text displayed for Guest
     icon2: <IoMdArrowDropdown style={{}} />, // Icon for dropdown
-    url: "guests", // No URL since it's a dropdown
     dropdown: true // Indicate this item is a dropdown
     
   },
@@ -114,9 +113,12 @@ const NavigationSide = ({ isOpen }) => {
     {navLinks.map((item, index) => ( // Iterate through navLinks array
         <div key={index}> 
             {item.dropdown ? (
-         
+    
                   <div onClick={() => {
                     toggleDropdown();
+                    isOpen(true);
+                  
+                
                   }} className="linkStyle" style={{ cursor: 'pointer', width: '100%' }}>
                     {item.icon} {/* Icon for dropdown (e.g., could be a dashboard icon) */}
                     <span className="linkTextStyle" style={{ display: isOpen ? 'inline' : 'none' }}>
@@ -139,11 +141,12 @@ const NavigationSide = ({ isOpen }) => {
                   </NavLink>
                 )}
             {item.dropdown && dropdownOpen && isOpen && ( // Render dropdown items if the dropdown is open and the sidebar is open
-              <div className="dropdownMenu">
-                <NavLink to="/guest-list" className="dropdownItem">Guest List</NavLink> {/* Dropdown item (link to guest list) */}
-                <NavLink to="/guest-details" className="dropdownItem">Guest Details</NavLink> {/* Dropdown item (link to guest details) */}
-              </div>
-            )}
+            <div className="dropdownMenu">
+              <NavLink to="/guest-list" className="dropdownItem">Guest List</NavLink> {/* Dropdown item (link to guest list) */}
+              <NavLink to="/guest-details" className="dropdownItem">Guest Details</NavLink> {/* Dropdown item (link to guest details) */}
+            
+            </div>
+          )}
         </div>
     ))}
 </nav>

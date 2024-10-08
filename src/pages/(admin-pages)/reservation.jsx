@@ -90,6 +90,8 @@ const Reservation = ({ sidebarOpen, toggleSidebar }) => {
     );
   };
 
+  
+
   return (
     <div className="flex flex-row overflow-hidden relative w-screen h-screen bg-gray-100">
       {/* Side navigation bar */}
@@ -146,7 +148,10 @@ const Reservation = ({ sidebarOpen, toggleSidebar }) => {
                 onClick={() => {}}
               >
                 <Filter size={18} />
+
+              
               </button>
+
             </div>
           </div>
 
